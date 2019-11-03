@@ -1,0 +1,128 @@
+ext {
+
+    SdkVersions = [
+            MinSdkVersion    : 23,
+            CompileSdkVersion: 28,
+            TargetSdkVersion : 28,
+    ]
+
+    Versions = [
+            Jetpack     : [
+                    Appcompat       : "1.0.2",
+                    Constraintlayout: "2.0.0-beta3",
+                    Material        : "1.0.0"
+            ],
+
+            Frameworks  : [
+                    Dagger     : "2.22.1",
+                    ButterKnife: "10.1.0",
+            ],
+
+            Libs        : [
+                    Cicerone: "5.0.0",
+                    Glide   : "4.9.0",
+                    TrueTime: "3.4",
+                    Lottie  : "3.0.7",
+                    Retrofit: "2.6.0",
+            ],
+
+            Rx          : [
+                    RxJava     : "2.2.7",
+                    RxAndroid  : "2.1.1",
+                    Permissions: "0.10.2",
+            ],
+
+            Firebase    : [
+                    Core    : "16.0.9",
+                    Auth    : "17.0.0",
+                    Database: "17.0.0",
+                    Storage : "17.0.0",
+            ],
+
+            PlayServices: [
+                    Location: "16.0.0",
+                    Maps    : [
+                            Maps      : "16.1.0",
+                            Directions: "0.9.3",
+                            MapUtils  : "0.5",
+                    ],
+            ],
+
+            Ui          : [
+                    MaterialRatingBar: "1.3.2",
+            ],
+
+            UnitTest    : [
+                    JUnit      : "4.12",
+                    MockitoCore: "2.25.1",
+            ],
+    ]
+
+    Dependencies = [
+            Jetpack     : [
+                    AppCompat       : "androidx.appcompat:appcompat:${Versions.Jetpack.Appcompat}",
+                    ConstraintLayout: "androidx.constraintlayout:constraintlayout:${Versions.Jetpack.Constraintlayout}",
+                    Material        : "com.google.android.material:material:${Versions.Jetpack.Material}"
+            ],
+
+            Rx          : [
+                    RxJava     : "io.reactivex.rxjava2:rxjava:${Versions.Rx.RxJava}",
+                    RxAndroid  : "io.reactivex.rxjava2:rxandroid:${Versions.Rx.RxAndroid}",
+                    Permissions: "com.github.tbruyelle:rxpermissions:${Versions.Rx.Permissions}",
+            ],
+
+            Frameworks  : [
+                    ButterKnife        : "com.jakewharton:butterknife:${Versions.Frameworks.ButterKnife}",
+                    ButterKnifeCompiler: "com.jakewharton:butterknife-compiler:${Versions.Frameworks.ButterKnife}",
+            ],
+
+            Libs        : [
+                    Cicerone: "ru.terrakok.cicerone:cicerone:${Versions.Libs.Cicerone}",
+                    TrueTime: "com.github.instacart.truetime-android:library-extension-rx:${Versions.Libs.TrueTime}",
+                    Lottie  : "com.airbnb.android:lottie:${Versions.Libs.Lottie}",
+
+                    Retrofit: [
+                            Retrofit     : "com.squareup.retrofit2:converter-gson:${Versions.Libs.Retrofit}",
+                            RxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava2:${Versions.Libs.Retrofit}",
+                            GsonConverter: "com.squareup.retrofit2:converter-gson:${Versions.Libs.Retrofit}"
+                    ],
+            ],
+
+            Dagger      : [
+                    Dagger   : "com.google.dagger:dagger-android:${Versions.Frameworks.Dagger}",
+                    Support  : "com.google.dagger:dagger-android-support:${Versions.Frameworks.Dagger}",
+                    Processor: "com.google.dagger:dagger-android-processor:${Versions.Frameworks.Dagger}",
+                    Compiler : "com.google.dagger:dagger-compiler:${Versions.Frameworks.Dagger}",
+            ],
+
+            Glide       : [
+                    Glide        : "com.github.bumptech.glide:glide:${Versions.Libs.Glide}",
+                    GlideCompiler: "com.github.bumptech.glide:compiler:${Versions.Libs.Glide}",
+            ],
+
+            Firebase    : [
+                    Core    : "com.google.firebase:firebase-core:${Versions.Firebase.Core}",
+                    Auth    : "com.google.firebase:firebase-auth:${Versions.Firebase.Auth}",
+                    Database: "com.google.firebase:firebase-database:${Versions.Firebase.Database}",
+                    Storage : "com.google.firebase:firebase-storage:${Versions.Firebase.Storage}",
+            ],
+
+            PlayServices: [
+                    Location: "com.google.android.gms:play-services-location:${Versions.PlayServices.Location}",
+                    Maps    : [
+                            Maps      : "com.google.android.gms:play-services-maps:${Versions.PlayServices.Maps.Maps}",
+                            Directions: "com.google.maps:google-maps-services:${Versions.PlayServices.Maps.Directions}",
+                            MapUtils  : "com.google.maps.android:android-maps-utils:${Versions.PlayServices.Maps.MapUtils}",
+                    ],
+            ],
+
+            Ui          : [
+                    MaterialRatingBar: "me.zhanghai.android.materialratingbar:library:${Versions.Ui.MaterialRatingBar}",
+            ],
+
+            UnitTest    : [
+                    JUnit  : "junit:junit:${Versions.UnitTest.JUnit}",
+                    Mockito: "org.mockito:mockito-core:${Versions.UnitTest.MockitoCore}",
+            ],
+    ]
+}

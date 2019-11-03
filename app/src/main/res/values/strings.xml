@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    <string name="celsius_pattern">%s °C</string>
+
+    <string name="weather_api_key" translatable="false">491b0b43ad4d443d1b73298c9e3323e1</string>
+</resources>

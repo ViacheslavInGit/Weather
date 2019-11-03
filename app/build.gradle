@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.bilyi.viacheslav.weather"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding{
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+
+    implementation Dependencies.Jetpack.AppCompat
+    implementation Dependencies.Jetpack.ConstraintLayout
+    implementation Dependencies.Jetpack.Material
+
+    implementation Dependencies.Rx.RxJava
+    implementation Dependencies.Rx.RxAndroid
+
+    implementation Dependencies.Libs.Retrofit.Retrofit
+    implementation Dependencies.Libs.Retrofit.RxJavaAdapter
+    implementation Dependencies.Libs.Retrofit.GsonConverter
+
+    implementation Dependencies.Dagger.Dagger
+    implementation Dependencies.Dagger.Support
+    kapt Dependencies.Dagger.Processor
+    kapt Dependencies.Dagger.Compiler
+
+}
