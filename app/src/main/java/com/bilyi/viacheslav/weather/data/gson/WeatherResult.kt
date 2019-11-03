@@ -1,14 +1,18 @@
 package com.bilyi.viacheslav.weather.data.gson
 
 data class WeatherResult(
-    private val tempMix: Double,
+    private val temp: Double,
+    private val tempMin: Double,
     private val tempMax: Double,
     val description: String
 ) {
-    val celsiusMin: Int
-        get() = (tempMix + ABSOLUTE_ZERO).toInt()
+    val currentCelsius: Int
+        get() = (temp + ABSOLUTE_ZERO).toInt()
 
-    val celsiusMax: Int
+    val minCelsius: Int
+        get() = (tempMin + ABSOLUTE_ZERO).toInt()
+
+    val maxCelsius: Int
         get() = (tempMax + ABSOLUTE_ZERO).toInt()
 
     companion object {

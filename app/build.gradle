@@ -23,7 +23,7 @@ android {
         }
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
     compileOptions {
@@ -38,6 +38,11 @@ dependencies {
     implementation Dependencies.Jetpack.ConstraintLayout
     implementation Dependencies.Jetpack.Material
 
+    implementation Dependencies.Dagger.Dagger
+    implementation Dependencies.Dagger.Support
+    kapt Dependencies.Dagger.Processor
+    kapt Dependencies.Dagger.Compiler
+
     implementation Dependencies.Rx.RxJava
     implementation Dependencies.Rx.RxAndroid
 
@@ -45,9 +50,8 @@ dependencies {
     implementation Dependencies.Libs.Retrofit.RxJavaAdapter
     implementation Dependencies.Libs.Retrofit.GsonConverter
 
-    implementation Dependencies.Dagger.Dagger
-    implementation Dependencies.Dagger.Support
-    kapt Dependencies.Dagger.Processor
-    kapt Dependencies.Dagger.Compiler
+    implementation Dependencies.Libs.ViewModel.Extensions
+    implementation Dependencies.Libs.ViewModel.ReactiveStreams
+    kapt Dependencies.Libs.ViewModel.Compiler
 
 }

@@ -6,7 +6,6 @@ import com.google.gson.JsonElement
 import java.lang.reflect.Type
 import javax.inject.Inject
 
-
 class WeatherResultDeserializer @Inject constructor() : JsonDeserializer<WeatherResult> {
 
     override fun deserialize(
@@ -29,10 +28,12 @@ class WeatherResultDeserializer @Inject constructor() : JsonDeserializer<Weather
             .get("main")
             .asJsonObject
 
+        val temp = mainJsonObject.get("temp").asDouble
         val tempMin = mainJsonObject.get("temp_min").asDouble
         val tempMax = mainJsonObject.get("temp_max").asDouble
 
         return WeatherResult(
+            temp,
             tempMin,
             tempMax,
             description

@@ -53,7 +53,12 @@ class DataModule {
 
     @Singleton
     @Provides
+    @WeatherApiKey
+    fun provideWeatherApiKey() = "491b0b43ad4d443d1b73298c9e3323e1"
+
+    @Singleton
+    @Provides
     @WeatherApiUrl
-    fun provideStaticApiUrl() = "http://api.openweathermap.org/data/2.5/"
+    fun provideWeatherBaseApiUrl() = "http://api.openweathermap.org/data/2.5/"
 
 }

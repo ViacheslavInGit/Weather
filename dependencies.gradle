@@ -19,11 +19,12 @@ ext {
             ],
 
             Libs        : [
-                    Cicerone: "5.0.0",
-                    Glide   : "4.9.0",
-                    TrueTime: "3.4",
-                    Lottie  : "3.0.7",
-                    Retrofit: "2.6.0",
+                    Cicerone : "5.0.0",
+                    Glide    : "4.9.0",
+                    TrueTime : "3.4",
+                    Lottie   : "3.0.7",
+                    Retrofit : "2.6.0",
+                    ViewModel: "2.1.0",
             ],
 
             Rx          : [
@@ -77,14 +78,20 @@ ext {
             ],
 
             Libs        : [
-                    Cicerone: "ru.terrakok.cicerone:cicerone:${Versions.Libs.Cicerone}",
-                    TrueTime: "com.github.instacart.truetime-android:library-extension-rx:${Versions.Libs.TrueTime}",
-                    Lottie  : "com.airbnb.android:lottie:${Versions.Libs.Lottie}",
+                    Cicerone : "ru.terrakok.cicerone:cicerone:${Versions.Libs.Cicerone}",
+                    TrueTime : "com.github.instacart.truetime-android:library-extension-rx:${Versions.Libs.TrueTime}",
+                    Lottie   : "com.airbnb.android:lottie:${Versions.Libs.Lottie}",
 
-                    Retrofit: [
+                    Retrofit : [
                             Retrofit     : "com.squareup.retrofit2:converter-gson:${Versions.Libs.Retrofit}",
                             RxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava2:${Versions.Libs.Retrofit}",
                             GsonConverter: "com.squareup.retrofit2:converter-gson:${Versions.Libs.Retrofit}"
+                    ],
+
+                    ViewModel: [
+                            Extensions     : "androidx.lifecycle:lifecycle-extensions:${Versions.Libs.ViewModel}",
+                            Compiler       : "androidx.lifecycle:lifecycle-common-java8:${Versions.Libs.ViewModel}",
+                            ReactiveStreams: "androidx.lifecycle:lifecycle-reactivestreams:${Versions.Libs.ViewModel}",
                     ],
             ],
 
@@ -114,15 +121,6 @@ ext {
                             Directions: "com.google.maps:google-maps-services:${Versions.PlayServices.Maps.Directions}",
                             MapUtils  : "com.google.maps.android:android-maps-utils:${Versions.PlayServices.Maps.MapUtils}",
                     ],
-            ],
-
-            Ui          : [
-                    MaterialRatingBar: "me.zhanghai.android.materialratingbar:library:${Versions.Ui.MaterialRatingBar}",
-            ],
-
-            UnitTest    : [
-                    JUnit  : "junit:junit:${Versions.UnitTest.JUnit}",
-                    Mockito: "org.mockito:mockito-core:${Versions.UnitTest.MockitoCore}",
             ],
     ]
 }

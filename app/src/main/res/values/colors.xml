@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <color name="hotWeather">#FFFF6C00</color>
+    <color name="heatWeather">#FFDABD</color>
+    <color name="averageWeather">#FFF4EA</color>
+    <color name="coolWeather">#D3E0FF</color>
+    <color name="frostWeather">#B5CDFF</color>
 </resources>
