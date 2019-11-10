@@ -1,5 +1,6 @@
 package com.bilyi.viacheslav.weather.data
 
+import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResult
 import com.bilyi.viacheslav.weather.data.gson.WeatherResult
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -15,11 +16,11 @@ interface WeatherApi {
 
     ): Single<WeatherResult>
 
-    @GET("forecast/hourly")
+    @GET("forecast")
     fun getForecastWeather(
         @Query("lat") latitude: Double,
         @Query("lon") longitude: Double,
         @Query("APPID") apiKey: String
 
-    ): Single<WeatherResult>
+    ): Single<ForecastWeatherResult>
 }

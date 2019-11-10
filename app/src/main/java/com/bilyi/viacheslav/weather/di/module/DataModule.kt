@@ -1,6 +1,8 @@
 package com.bilyi.viacheslav.weather.di.module
 
 import com.bilyi.viacheslav.weather.data.WeatherApi
+import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResult
+import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResultDeserializer
 import com.bilyi.viacheslav.weather.data.gson.WeatherResult
 import com.bilyi.viacheslav.weather.data.gson.WeatherResultDeserializer
 import com.bilyi.viacheslav.weather.di.qualifier.WeatherApiKey
@@ -43,13 +45,19 @@ class DataModule {
     @Provides
     @Singleton
     fun provideGson(
-        weatherResultDeserializer: WeatherResultDeserializer
+        weatherResultDeserializer: WeatherResultDeserializer,
+        forecastWeatherResultDeserializer: ForecastWeatherResultDeserializer
     ) =
         GsonBuilder()
             .registerTypeAdapter(
                 WeatherResult::class.java,
                 weatherResultDeserializer
-            ).create()
+            )
+            .registerTypeAdapter(
+                ForecastWeatherResult::class.java,
+                forecastWeatherResultDeserializer
+            )
+            .create()
 
     @Singleton
     @Provides

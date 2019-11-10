@@ -22,8 +22,11 @@ class CurrentWeatherViewModel @Inject constructor(
                 longitude,
                 apiKey
             ),
-            { weatherLiveData.value = it },
-            { throwable -> Log.e("", "", throwable) }
+            {
+                weatherLiveData.value = it
+                Log.d("###", "success")
+            },
+            { throwable -> Log.e("###", "", throwable) }
         )
 
     }

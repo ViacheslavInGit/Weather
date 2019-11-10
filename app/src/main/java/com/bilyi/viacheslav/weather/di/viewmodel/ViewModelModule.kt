@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bilyi.viacheslav.weather.ui.MainActivityViewModel
 import com.bilyi.viacheslav.weather.ui.fragment.CurrentWeatherViewModel
+import com.bilyi.viacheslav.weather.ui.fragment.ForecastWeatherViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,6 +21,11 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(CurrentWeatherViewModel::class)
     fun currentWeatherViewModel(viewModel: CurrentWeatherViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ForecastWeatherViewModel::class)
+    fun forecastWeatherViewModel(viewModel: ForecastWeatherViewModel): ViewModel
 
     @Binds
     @IntoMap
