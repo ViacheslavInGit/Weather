@@ -39,7 +39,10 @@ class CurrentWeatherFragment : DaggerFragment() {
         descriptionTextView.text = weather.description
 
         currentWeatherRoot.setBackgroundColor(
-            resources.getColor(weather.currentCelsius.getSuitableColor())
+            resources.getColor(
+                weather.currentCelsius.getSuitableColor(),
+                requireActivity().theme
+            )
         )
     }
 

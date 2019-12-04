@@ -1,6 +1,5 @@
 package com.bilyi.viacheslav.weather.util
 
-import android.content.res.Resources
 import com.bilyi.viacheslav.weather.R
 
 fun Int.getSuitableColor() =

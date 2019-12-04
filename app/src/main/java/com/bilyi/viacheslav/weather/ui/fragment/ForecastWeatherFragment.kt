@@ -53,7 +53,7 @@ class ForecastWeatherFragment : DaggerFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = inflater.inflate(R.layout.fragment_forecast_weather, container, false)
+    ): View = inflater.inflate(R.layout.fragment_forecast_weather, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,7 +1,5 @@
 package com.bilyi.viacheslav.weather.data.gson
 
-import kotlin.random.Random
-
 data class WeatherResult(
     private val temp: Double,
     private val tempMin: Double,

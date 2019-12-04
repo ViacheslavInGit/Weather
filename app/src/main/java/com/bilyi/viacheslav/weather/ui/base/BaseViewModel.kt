@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 
 open class BaseViewModel : ViewModel() {
 
-    val disposable = CompositeDisposable()
+    private val disposable = CompositeDisposable()
 
     fun <T> subscribe(
         chain: Single<T>,

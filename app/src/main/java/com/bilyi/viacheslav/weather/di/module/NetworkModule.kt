@@ -46,7 +46,7 @@ class NetworkModule {
     fun provideGson(
         weatherResultDeserializer: WeatherResultDeserializer,
         forecastWeatherResultDeserializer: ForecastWeatherResultDeserializer
-    ) =
+    ): Gson =
         GsonBuilder()
             .registerTypeAdapter(
                 WeatherResult::class.java,
