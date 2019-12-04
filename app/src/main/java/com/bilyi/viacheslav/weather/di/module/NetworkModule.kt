@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 
 @Module
-class DataModule {
+class NetworkModule {
 
     @Provides
     @Singleton
@@ -34,7 +34,6 @@ class DataModule {
             .build()
             .create(WeatherApi::class.java)
     }
-
 
     @Provides
     @Singleton

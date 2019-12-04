@@ -1,6 +1,8 @@
 package com.bilyi.viacheslav.weather.ui
 
+import android.Manifest
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bilyi.viacheslav.weather.R
@@ -40,6 +42,15 @@ class MainActivity : DaggerAppCompatActivity() {
 
         invertScreenButton.setOnClickListener { viewModel.invertScreen() }
 
+        requestLocationPermission()
+    }
+
+    private fun requestLocationPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+            LOCATION_PERMISSION_REQUEST_CODE
+        )
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -49,6 +60,10 @@ class MainActivity : DaggerAppCompatActivity() {
                 fragment
             )
             .commit()
+    }
+
+    companion object {
+        const val LOCATION_PERMISSION_REQUEST_CODE = 1000
     }
 
 }

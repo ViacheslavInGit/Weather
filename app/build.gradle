@@ -7,11 +7,11 @@ apply plugin: 'kotlin-kapt'
 apply from: '../dependencies.gradle'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion SdkVersions.Compile
     defaultConfig {
         applicationId "com.bilyi.viacheslav.weather"
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion SdkVersions.Min
+        targetSdkVersion SdkVersions.Target
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -53,5 +53,7 @@ dependencies {
     implementation Dependencies.Libs.ViewModel.Extensions
     implementation Dependencies.Libs.ViewModel.ReactiveStreams
     kapt Dependencies.Libs.ViewModel.Compiler
+
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
 }
