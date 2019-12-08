@@ -13,10 +13,13 @@ import javax.inject.Singleton
 @Module
 abstract class LocationModule {
 
+    // провайдит LocationRepository используя LocationRepositoryImpl.
+    // что бы @Binds работал - у реализации должен быть @Inject-конструктор
     @Binds
     @Singleton
     abstract fun provideLocationRepo(repoImpl: LocationRepositoryImpl): LocationRepository
 
+    // companion object + @JvmStatic потому что поле у модуль-класса должно быть либо абстрактным либо статическим
     @Module
     companion object {
 

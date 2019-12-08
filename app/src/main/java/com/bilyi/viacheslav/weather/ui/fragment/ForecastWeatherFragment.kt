@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bilyi.viacheslav.weather.R
@@ -33,8 +32,7 @@ class ForecastWeatherFragment : DaggerFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel =
-            ViewModelProviders.of(this, viewModelFactory)[ForecastWeatherViewModel::class.java]
+        viewModel = viewModelFactory.create(ForecastWeatherViewModel::class.java)
 
         viewModel.forecastWeatherLiveData.observe(this, Observer { weatherResult ->
             showForecastWeather(weatherResult)

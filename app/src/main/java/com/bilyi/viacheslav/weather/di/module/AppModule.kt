@@ -12,6 +12,7 @@ abstract class AppModule {
     @Module
     companion object {
 
+        // провайдит Context из WeatherApplication
         @JvmStatic
         @Provides
         @Singleton

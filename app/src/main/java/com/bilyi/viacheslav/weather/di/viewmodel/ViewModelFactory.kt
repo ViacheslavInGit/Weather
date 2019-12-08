@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
 
+//Фабрика для того что бы провайдить вьюмодели через дагер
 class ViewModelFactory @Inject constructor(
     private val viewModelMap: MutableMap<Class<out ViewModel>, Provider<ViewModel>>
 ) : ViewModelProvider.Factory {

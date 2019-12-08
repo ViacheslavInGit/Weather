@@ -29,6 +29,7 @@ class NetworkModule {
     ): WeatherApi {
         return Retrofit.Builder()
             .baseUrl(weatherApiUrl)
+            //добавляет поддержки RxJava. Указывает дефолтный шедулер
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .addConverterFactory(gsonConverterFactory)
             .build()
@@ -48,6 +49,7 @@ class NetworkModule {
         forecastWeatherResultDeserializer: ForecastWeatherResultDeserializer
     ): Gson =
         GsonBuilder()
+            // указывает что для парсинга респонса в WeatherResult нужно юзать weatherResultDeserializer
             .registerTypeAdapter(
                 WeatherResult::class.java,
                 weatherResultDeserializer
@@ -58,11 +60,14 @@ class NetworkModule {
             )
             .create()
 
+    // провайдит @WeatherApiKey String
     @Singleton
     @Provides
+    // квалифаер
     @WeatherApiKey
     fun provideWeatherApiKey() = "491b0b43ad4d443d1b73298c9e3323e1"
 
+    // провайдит @WeatherApiUrl String
     @Singleton
     @Provides
     @WeatherApiUrl

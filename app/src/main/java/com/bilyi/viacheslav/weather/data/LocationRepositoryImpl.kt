@@ -1,6 +1,7 @@
 package com.bilyi.viacheslav.weather.data
 
 import android.location.Location
+import android.util.Log
 import com.bilyi.viacheslav.weather.domain.LocationRepository
 import com.google.android.gms.location.FusedLocationProviderClient
 import io.reactivex.Single
@@ -10,14 +11,20 @@ class LocationRepositoryImpl @Inject constructor(
     private val fusedLocationClient: FusedLocationProviderClient
 ) : LocationRepository {
 
-
     override fun getLocation(): Single<Location> {
         return Single.create { emitter ->
+
             fusedLocationClient.lastLocation.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    emitter.onSuccess(task.result!!)
-                } else {
-                    emitter.onError(task.exception!!)
+
+                val result = task.result
+                val exception = task.exception
+
+                when {
+                    result == null -> Log.d("###", "result is null")
+                    task.isSuccessful -> emitter.onSuccess(result)
+
+                    exception == null -> Log.d("###", "exception is null")
+                    else -> emitter.onError(exception)
                 }
             }
         }

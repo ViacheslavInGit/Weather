@@ -6,6 +6,8 @@ import com.google.gson.JsonElement
 import java.lang.reflect.Type
 import javax.inject.Inject
 
+// Deserializer, который парсит json-ответ от openweathermap.org в доменную сущность
+// Юзаеться в билдере ретрофита в di
 class ForecastWeatherResultDeserializer @Inject constructor() :
     JsonDeserializer<ForecastWeatherResult> {
 

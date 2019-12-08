@@ -11,8 +11,10 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
+// Компонент, с которого начинаеться граф зависимостей. Юзается в WeatherApplication
 @Component(
     modules = [
+        // пока что нужно юзать этот модуль
         AndroidSupportInjectionModule::class,
 
         AppModule::class,

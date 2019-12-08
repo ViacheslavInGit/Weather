@@ -11,6 +11,8 @@ import dagger.android.ContributesAndroidInjector
 @Module
 interface ActivityModule {
 
+
+    // генерирует AndroidInjector для Activity/Fragment
     @ContributesAndroidInjector
     @ActivityScope
     fun contributeMainActivity(): MainActivity
