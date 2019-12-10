@@ -1,5 +1,6 @@
 package com.bilyi.viacheslav.weather.data.location
 
+import android.util.Log
 import com.bilyi.viacheslav.weather.domain.LatLng
 import com.bilyi.viacheslav.weather.domain.LocationRepository
 import io.reactivex.Completable
@@ -14,6 +15,7 @@ class LocationRepositoryImpl @Inject constructor(
     override fun getLatLng(): Single<LatLng> {
         return updateLocation().onErrorComplete()
             .toSingle { preferencesDataSource.getLastLatLng() }
+            .doOnSuccess { Log.d("###latLng", "$it") }
     }
 
     private fun updateLocation(): Completable {

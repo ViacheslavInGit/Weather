@@ -29,6 +29,8 @@ class SharedPreferencesLocationDataSource @Inject constructor(
     fun saveLatLng(latLng: LatLng) {
         editor.putFloat(LATITUDE_KEY, latLng.latitude.toFloat())
         editor.putFloat(LONGITUDE_KEY, latLng.longitude.toFloat())
+
+        editor.apply()
     }
 
     fun saveLatLngCompletable(latLng: LatLng) = Completable.fromAction { saveLatLng(latLng) }
