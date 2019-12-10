@@ -1,4 +1,4 @@
-package com.bilyi.viacheslav.weather.data.gson
+package com.bilyi.viacheslav.weather.data.weather.gson
 
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer

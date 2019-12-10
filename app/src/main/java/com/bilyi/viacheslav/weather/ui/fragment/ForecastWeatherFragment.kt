@@ -2,7 +2,6 @@ package com.bilyi.viacheslav.weather.ui.fragment
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bilyi.viacheslav.weather.R
-import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResult
-import com.bilyi.viacheslav.weather.data.gson.WeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.ForecastWeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.WeatherResult
 import com.bilyi.viacheslav.weather.util.getSuitableColor
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_forecast_weather.*
@@ -40,8 +39,6 @@ class ForecastWeatherFragment : DaggerFragment() {
     }
 
     private fun showForecastWeather(forecastResult: ForecastWeatherResult) {
-        Log.d("###", "show ${forecastResult.forecastDayResultList.size} items")
-
         forecastAdapter.weatherResultList.clear()
         forecastAdapter.weatherResultList.addAll(forecastResult.forecastDayResultList)
         forecastAdapter.notifyDataSetChanged()

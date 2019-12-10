@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bilyi.viacheslav.weather.R
-import com.bilyi.viacheslav.weather.data.gson.WeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.WeatherResult
 import com.bilyi.viacheslav.weather.util.getSuitableColor
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_current_weather.*

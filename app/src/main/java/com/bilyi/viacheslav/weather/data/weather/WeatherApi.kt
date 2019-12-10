@@ -1,7 +1,7 @@
-package com.bilyi.viacheslav.weather.data
+package com.bilyi.viacheslav.weather.data.weather
 
-import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResult
-import com.bilyi.viacheslav.weather.data.gson.WeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.ForecastWeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.WeatherResult
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

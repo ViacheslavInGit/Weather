@@ -1,7 +1,7 @@
 package com.bilyi.viacheslav.weather.di.module
 
 import android.content.Context
-import com.bilyi.viacheslav.weather.data.LocationRepositoryImpl
+import com.bilyi.viacheslav.weather.data.location.LocationRepositoryImpl
 import com.bilyi.viacheslav.weather.domain.LocationRepository
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices

@@ -1,10 +1,10 @@
 package com.bilyi.viacheslav.weather.ui.fragment
 
-import android.location.Location
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.bilyi.viacheslav.weather.data.WeatherApi
-import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResult
+import com.bilyi.viacheslav.weather.data.weather.WeatherApi
+import com.bilyi.viacheslav.weather.data.weather.gson.ForecastWeatherResult
+import com.bilyi.viacheslav.weather.domain.LatLng
 import com.bilyi.viacheslav.weather.di.qualifier.WeatherApiKey
 import com.bilyi.viacheslav.weather.domain.LocationRepository
 import com.bilyi.viacheslav.weather.ui.base.BaseViewModel
@@ -20,11 +20,11 @@ class ForecastWeatherViewModel @Inject constructor(
 
     fun updateForecastWeather() {
         subscribe(
-            locationRepository.getLocation()
-                .flatMap { location: Location ->
+            locationRepository.getLatLng()
+                .flatMap { latLng: LatLng ->
                     weatherApi.getForecastWeather(
-                        location.latitude,
-                        location.longitude,
+                        latLng.latitude,
+                        latLng.longitude,
                         apiKey
                     )
                 },

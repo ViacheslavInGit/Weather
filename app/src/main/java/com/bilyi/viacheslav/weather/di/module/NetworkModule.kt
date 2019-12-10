@@ -1,10 +1,10 @@
 package com.bilyi.viacheslav.weather.di.module
 
-import com.bilyi.viacheslav.weather.data.WeatherApi
-import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResult
-import com.bilyi.viacheslav.weather.data.gson.ForecastWeatherResultDeserializer
-import com.bilyi.viacheslav.weather.data.gson.WeatherResult
-import com.bilyi.viacheslav.weather.data.gson.WeatherResultDeserializer
+import com.bilyi.viacheslav.weather.data.weather.WeatherApi
+import com.bilyi.viacheslav.weather.data.weather.gson.ForecastWeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.ForecastWeatherResultDeserializer
+import com.bilyi.viacheslav.weather.data.weather.gson.WeatherResult
+import com.bilyi.viacheslav.weather.data.weather.gson.WeatherResultDeserializer
 import com.bilyi.viacheslav.weather.di.qualifier.WeatherApiKey
 import com.bilyi.viacheslav.weather.di.qualifier.WeatherApiUrl
 import com.google.gson.Gson
