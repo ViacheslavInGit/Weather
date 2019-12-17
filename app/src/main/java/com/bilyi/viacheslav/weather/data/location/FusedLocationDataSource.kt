@@ -5,8 +5,8 @@ import android.util.Log
 import com.bilyi.viacheslav.weather.domain.LatLng
 import com.bilyi.viacheslav.weather.util.PermissionsManager
 import com.google.android.gms.location.FusedLocationProviderClient
-import io.reactivex.Single
-import io.reactivex.SingleEmitter
+import io.reactivex.Observable
+import io.reactivex.ObservableEmitter
 import javax.inject.Inject
 
 class FusedLocationDataSource @Inject constructor(
@@ -14,19 +14,19 @@ class FusedLocationDataSource @Inject constructor(
     private val permissionsManager: PermissionsManager
 ) {
 
-    fun getLatLng(): Single<LatLng> {
-        return Single.create { emitter ->
+    fun getLatLng(): Observable<LatLng> {
+        return Observable.create { emitter ->
 
             if (permissionsManager.isLocationPermissionEnabled()) {
                 listenLocationResult(emitter)
             } else {
                 Log.d("###", "locationPermissions not enabled")
-                emitter.onError(Exception("locationPermissions not enabled"))
+//                emitter.onError(Exception("locationPermissions not enabled"))
             }
         }
     }
 
-    private fun listenLocationResult(emitter: SingleEmitter<LatLng>) {
+    private fun listenLocationResult(emitter: ObservableEmitter<LatLng>) {
         fusedLocationClient.lastLocation.addOnCompleteListener { task ->
 
             Log.d("###", "loc result ${task.result}")
@@ -36,7 +36,7 @@ class FusedLocationDataSource @Inject constructor(
 
             when {
                 result == null -> Log.e("###", "result is null")
-                task.isSuccessful -> emitter.onSuccess(result.toLatLng())
+                task.isSuccessful -> emitter.onNext(result.toLatLng())
 
                 exception == null -> Log.e("###", "exception is null")
                 else -> emitter.onError(exception)

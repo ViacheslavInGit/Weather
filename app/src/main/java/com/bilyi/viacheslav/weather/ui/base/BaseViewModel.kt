@@ -1,6 +1,7 @@
 package com.bilyi.viacheslav.weather.ui.base
 
 import androidx.lifecycle.ViewModel
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -15,6 +16,20 @@ open class BaseViewModel : ViewModel() {
     // метод для наследников
     // сохраняеться подписка
     // указывает шедулеры для операций цепочки.
+    fun <T> subscribe(
+        chain: Observable<T>,
+        onNext: (T) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        disposable.add(
+            chain.prepareSchedulers()
+                .subscribe(
+                    onNext,
+                    onError
+                )
+        )
+    }
+
 
     fun <T> subscribe(
         chain: Single<T>,
@@ -40,6 +55,10 @@ open class BaseViewModel : ViewModel() {
 
 // До подписки операции выполняються в шедулере io
 // После - в главном потоке
-fun <T> Single<T>.prepareSchedulers() =
+fun <T> Observable<T>.prepareSchedulers(): Observable<T> =
+    this.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+
+fun <T> Single<T>.prepareSchedulers(): Single<T> =
     this.subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
